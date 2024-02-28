@@ -22,7 +22,6 @@ while i < 10:
             vote_null += 1
         case "branco":
             vote_white += 1
-            print('Voto computado com sucesso.')
         case _:
             print("Valor {} inválido".format(vote))
             continue
@@ -32,5 +31,10 @@ while i < 10:
         arquivo_csv.write(linha)
     print('Voto computado com sucesso.')
     i += 1
+with open('eleicao_total.csv', 'w') as arquivo_csv:
+    arquivo_csv.write("A\t B\t C\t Nulo\t Branco\n")
+    linha = f"{vote_a}\t{vote_b}\t{vote_c}\t{vote_null}\t{vote_white}\n"
+    arquivo_csv.write(linha)
+
 
     
